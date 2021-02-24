@@ -25,7 +25,6 @@ public class Student {
     @Enumerated(EnumType.STRING)
     @NotNull
     private Gender gender;
-
     @JsonIgnore
     @JoinColumn(name = "university_id")
     @ManyToOne
@@ -59,10 +58,6 @@ public class Student {
         this.age = age;
     }
 
-    public void setUniversity(University university) {
-        this.university = university;
-    }
-
     public int getId() {
         return id;
     }
@@ -74,11 +69,6 @@ public class Student {
     public int getAge() {
         return age;
     }
-
-    public University getUniversity() {
-        return university;
-    }
-
     public Book getBook() {
         return book;
     }
@@ -89,5 +79,13 @@ public class Student {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public University getUniversity() {
+        return university;
+    }
+
+    public void setUniversity(University university) {
+        this.university = university;
     }
 }

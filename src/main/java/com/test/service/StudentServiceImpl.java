@@ -1,9 +1,11 @@
 package com.test.service;
 
 import com.test.model.Student;
+import com.test.model.University;
 import com.test.model.enums.Gender;
 import com.test.repository.StudentRepository;
 import com.test.util.exception.DuplicateException;
+import com.test.util.exception.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

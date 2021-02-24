@@ -1,6 +1,7 @@
 package com.test.model;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.List;
 
 @Table(name = "university", uniqueConstraints = {@UniqueConstraint(columnNames = {"address", "name"})})
@@ -16,6 +17,17 @@ public class University {
 
     @Column(name = "address")
     private String address;
+
+    @Column(name = "creation_date")
+    private LocalDate creationDate;
+
+    public LocalDate getCreationDate() {
+        return creationDate;
+    }
+
+    public void setCreationDate(LocalDate creationDate) {
+        this.creationDate = creationDate;
+    }
 
     @OneToMany(mappedBy = "university")
     private List<Student> studentList;

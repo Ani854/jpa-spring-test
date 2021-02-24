@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 @RestController
@@ -41,5 +43,12 @@ public class UniversityController {
     @PostMapping(value = "/test")
     public void saveTest(){
         universityService.saveTest();
+    }
+    @GetMapping("/getByDate")
+    public ResponseEntity<List<University>> getBuDate() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        LocalDate date = LocalDate.parse("2000-01-01", formatter);
+        List<University> list = universityService.getByCreationDate(date);
+        return ResponseEntity.ok(list);
     }
 }
