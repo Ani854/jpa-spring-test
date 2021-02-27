@@ -1,11 +1,9 @@
 package com.test.service;
 
 import com.test.model.Student;
-import com.test.model.University;
 import com.test.model.enums.Gender;
 import com.test.repository.StudentRepository;
 import com.test.util.exception.DuplicateException;
-import com.test.util.exception.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -44,4 +42,26 @@ public class StudentServiceImpl implements StudentService {
     public Student getByEmail1(int age, Gender gender, String name, String email) {
         return studentRepository.getByEmail1(age, gender, name, email);
     }
+
+    @Override
+    public List<Student> getByQuery(String name) {
+        return studentRepository.getByQuery(name);
+    }
+
+    @Override
+    public List<Student> getAllBetweenDates(long fromMills, long toMills) {
+        return studentRepository.getAllBetweenDates(fromMills, toMills);
+    }
+
+    //  @Override
+    //public List<Student> findAllByUniversityAndOrderByName(University university) {
+    //  return studentRepository.findAllByUniversityAndOrderByName(university);
+    //}
+
+    @Override
+    public List<Student> getStudentsByYsu(int id) {
+        return studentRepository.getStudentsByYsu(id);
+    }
+
+
 }

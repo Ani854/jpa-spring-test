@@ -37,4 +37,24 @@ public class StudentController {
     public void save(@RequestBody Student student) throws DuplicateException {
         studentService.save(student);
     }
+
+    @GetMapping("/search-by-name")
+    public List<Student> getAllByQuery(@RequestParam(value = "name") String name) {
+        return studentService.getByQuery(name);
+    }
+
+    @GetMapping("/get-by-entrance-date")
+    public List<Student> getAllBetweenDates(@RequestParam long fromMills, @RequestParam long toMills) {
+        return studentService.getAllBetweenDates(fromMills, toMills);
+    }
+
+    // @GetMapping("/get-students-by-university")
+    //public List<Student> findAllByUniversityAndOrderByName(University university) {
+    //  return studentService.findAllByUniversityAndOrderByName(university);
+    //}
+    @GetMapping("/get-by-ysu")
+    public List<Student> getByYsu(@RequestParam int id) {
+        List<Student> studentList = studentService.getStudentsByYsu(id);
+        return studentList;
+    }
 }

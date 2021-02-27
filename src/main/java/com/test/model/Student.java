@@ -20,6 +20,10 @@ public class Student {
     @Column(name = "name")
     private String name;
 
+    @Column(name = "entrance_date")
+    private long entranceDate;
+
+
     @Column(name = "age")
     private int age;
     @Enumerated(EnumType.STRING)
@@ -69,6 +73,7 @@ public class Student {
     public int getAge() {
         return age;
     }
+
     public Book getBook() {
         return book;
     }

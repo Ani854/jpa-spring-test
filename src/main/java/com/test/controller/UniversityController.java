@@ -40,11 +40,13 @@ public class UniversityController {
     public void save(@RequestBody University university) throws DuplicateException {
         universityService.save(university);
     }
+
     @PostMapping(value = "/test")
-    public void saveTest(){
+    public void saveTest() {
         universityService.saveTest();
     }
-    @GetMapping("/getByDate")
+
+    @GetMapping("/get-by-date")
     public ResponseEntity<List<University>> getBuDate() {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         LocalDate date = LocalDate.parse("2000-01-01", formatter);

@@ -1,8 +1,6 @@
 package com.test.repository;
 
-import com.test.model.Student;
 import com.test.model.University;
-import com.test.util.exception.NotFoundException;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -18,5 +16,5 @@ public interface UniversityRepository extends JpaRepository<University, Integer>
     University getByNameAndAddress(String name, String address);
 
     @Query("SELECT u FROM University u WHERE u.creationDate < ?1 ")
-    List <University> getByCreationDate(LocalDate creationDate);
+    List<University> getByCreationDate(LocalDate creationDate);
 }

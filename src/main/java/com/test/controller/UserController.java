@@ -58,7 +58,7 @@ public class UserController {
         userService.resetPassword(email);
     }
 
-    @PostMapping("/newPassword")
+    @PostMapping("/new-password")
 
     public void changePassword(@RequestParam("token") String token, @RequestParam("password") String password) throws NotFoundException {
         userService.changePassword(token, password);

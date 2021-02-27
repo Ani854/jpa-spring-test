@@ -2,7 +2,7 @@ package com.test.model;
 
 import com.test.model.enums.Status;
 
-import javax.persistence.*;;
+import javax.persistence.*;
 import java.util.Date;
 
 @Entity

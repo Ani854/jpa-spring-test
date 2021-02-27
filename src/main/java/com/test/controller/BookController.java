@@ -35,7 +35,7 @@ public class BookController {
     }
 
     @PostMapping
-    public void save( @Valid @RequestBody Book book) {
+    public void save(@Valid @RequestBody Book book) {
         booksService.save(book);
     }
 }
