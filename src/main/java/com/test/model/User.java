@@ -1,9 +1,11 @@
 package com.test.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.test.model.enums.Status;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.Set;
 
 @Entity
 public class User {
@@ -32,6 +34,21 @@ public class User {
 
     @Column(name = "reset_password_token")
     private String resetPasswordToken;
+
+    @JsonIgnore
+    @ManyToMany
+    @JoinTable(name = "user_authority",
+            joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "authority_id", referencedColumnName = "id"))
+    private Set<Authority> authorities;
+
+    public Set<Authority> getAuthorities() {
+        return authorities;
+    }
+
+    public void setAuthorities(Set<Authority> authorities) {
+        this.authorities = authorities;
+    }
 
     public String getResetPasswordToken() {
         return resetPasswordToken;

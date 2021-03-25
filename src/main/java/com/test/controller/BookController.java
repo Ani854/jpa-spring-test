@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.security.RolesAllowed;
 import javax.validation.Valid;
 import java.util.List;
 
@@ -22,6 +23,7 @@ public class BookController {
         return ResponseEntity.ok(book);
     }
 
+    @RolesAllowed(value = {"ROLE_ADMIN"})
     @GetMapping
     public ResponseEntity<List<Book>> getAll() {
         List<Book> bookList = booksService.getAll();

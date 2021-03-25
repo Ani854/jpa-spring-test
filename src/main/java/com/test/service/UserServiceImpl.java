@@ -84,8 +84,6 @@ public class UserServiceImpl implements UserService {
     }
 
     @Transactional
-
-
     @Override
     public User getByEmail(String email) {
         User user = userRepository.getByEmail(email);
